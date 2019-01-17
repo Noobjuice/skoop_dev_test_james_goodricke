@@ -9,17 +9,15 @@
 		session_start();
 	
 		//If login has been unsucessfully attempted, display error message.
-		if(isset($_SESSION["login"])) {
-			 if($_SESSION["login"] == "false") {
-				//Display an error message and unset session variable (so the message won't be displayed until another unsuccessful login is attempted).
-				echo "<p>The email address or password is incorrect. Please try again.</p>";
-				unset($_SESSION["login"]);
-			 }
+		if(isset($_SESSION["loginError"])) {
+			//Display an error message and unset session variable (so the message won't be displayed until another unsuccessful login is attempted).
+			echo "<p>".$_SESSION["loginError"]."</p>";
+			unset($_SESSION["loginError"]);
 		}
 	?>
 	<form action="login-do.php" method="post">
-		Username: <input type="text" id="email"><br />
-		Password: <input type="password" id="password"><br />
+		<input type="email" name="email" placeholder="email"> <br />
+		<input type="password" name="password" placeholder="password"> <br />
 		<input type="submit">
 	</form>
 	<div id="result"></div>
