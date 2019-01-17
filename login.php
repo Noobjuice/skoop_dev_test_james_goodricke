@@ -17,7 +17,7 @@
 			 }
 		}
 	?>
-	<form action="orders.php" method="post">
+	<form action="login-do.php" method="post">
 		Username: <input type="text" id="email"><br />
 		Password: <input type="password" id="password"><br />
 		<input type="submit">
