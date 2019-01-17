@@ -8,7 +8,4 @@
 </head>
 <body>
 	<h1>Past Orders</h1>
-	<?php
-		echo $_SESSION["login"];
-	?>
 </body>

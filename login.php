@@ -7,6 +7,12 @@
 	<?php
 		//Start Session
 		session_start();
+		
+		//If user is already logged in, take them to orders page.
+		if(isset($_SESSION["user"])) {
+			header( "Location: orders.php" );
+		}
+	
 	
 		//If login has been unsucessfully attempted, display error message.
 		if(isset($_SESSION["loginError"])) {

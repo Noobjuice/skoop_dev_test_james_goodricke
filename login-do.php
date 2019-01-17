@@ -31,13 +31,13 @@
 		}
 		//If input fails to sanitise, return to login page
 		catch(Exception $e) {
-			reject($errorMsg . "1");
+			reject($errorMsg);
 		}
 		
 	}
 	//If user input does not exist, return to login page
 	else{
-		reject($errorMsg . "2");
+		reject($errorMsg);
 	}
 	
 
@@ -45,7 +45,7 @@
 	// Create connection
 	$conn = new mysqli($serverName, $dbUsername, $dbPassword, $dbName);
 	if ($conn->connect_error) {
-		reject($errorMsg . "5");
+		reject($errorMsg);
 	}
 	
 	//Send Query to Server
@@ -71,11 +71,11 @@
 			}
 		}
 		else{
-			reject($errorMsg."3");
+			reject($errorMsg);
 		}
 	}
 	else{
-		reject($errorMsg."4");
+		reject($errorMsg);
 	}
 	
 	if($userFound == true){
