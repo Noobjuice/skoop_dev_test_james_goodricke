@@ -27,6 +27,17 @@
 		}
 		//If no connection error, fetch and display data.
 		else{
+			//Query to be sent to Server
+			/*`id`, `order_id`, `product_code`, `name`, `email`, `mobile`, `address_line_one`, `address_line_two`, `suburb`, `state`, `postcode`, `country`, `status`*/
+			$statement = "SELECT id, name, email, mobile, address_line_one, address_line_two, suburb, state, postcode, country, status  FROM ".$dbTableName;
+				
+			//Prepare and execute Query
+			if($query = $conn->prepare($statement)){
+				//TODO: Delete This
+				//$query->bind_param('issssssssss');
+				$query->execute();
+			}
+			
 			/*
 			echo"<table>
 			<tr>
@@ -36,18 +47,8 @@
 			<th>Shipping Status</th>
 			<th>Order Details</th>
 			</tr>";
-			//Query to be sent to Server
-			$statement = "SELECT id, number,  FROM ".$dbTableName." WHERE email = ?";
-			
-			`id`, `order_id`, `product_code`, `name`, `email`, `mobile`, `address_line_one`, `address_line_two`, `suburb`, `state`, `postcode`, `country`, `status`;
-				
-			//Prepare Query
-			if($query = $conn->prepare($statement)){
-				$query->bind_param('s', $email);
-				
-				//Execute Query
-				$query->execute();
-			}*/
+			*/
+
 		}
 		
 
