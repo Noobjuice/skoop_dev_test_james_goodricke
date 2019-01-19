@@ -48,7 +48,7 @@
 		reject($errorMsg);
 	}
 	
-	//Send Query to Server
+	//Query to be sent to server
 	$statement = "SELECT * FROM ".$dbTableName." WHERE email = ?";
 		
 	//Prepare Query
