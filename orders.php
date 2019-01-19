@@ -127,11 +127,6 @@
 								<th>".$status."</th>
 								<th><a href='order-details.php?id=".$id."' class='button'>&rarr;</a></th>
 							</tr>";
-							/*TODO: Delete This
-							<button onClick='parent.location=\"order-details.php?id=".$id."\"'>&rarr;</button>*/
-							
-					
-
 					}
 					//Close Table
 					echo"</table>";
