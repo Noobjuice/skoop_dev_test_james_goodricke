@@ -19,7 +19,7 @@
 		header( "Location: login.php" );
 	}
 	
-	//Check user is logged in
+
 	session_start();
 	
 	//Check if user input exists.
@@ -48,7 +48,7 @@
 		reject($errorMsg);
 	}
 	
-	//Query to be sent to Server
+	//Send Query to Server
 	$statement = "SELECT * FROM ".$dbTableName." WHERE email = ?";
 		
 	//Prepare Query
@@ -58,7 +58,7 @@
 		//Execute Query
 		$query->execute();
 		
-		//If Query Successful, check if username and password is correct.
+		//If query successful, check if username and password is correct.
 		if($query->errno == 0) {
 			$query->store_result();
 			$query->bind_result($id, $queryEmail, $queryPassword);
@@ -70,19 +70,23 @@
 				}
 			}
 		}
+		//If query unsuccessful, return to login page
 		else{
 			reject($errorMsg);
 		}
 	}
+	//If query can't be prepared, return to login screen.
 	else{
 		reject($errorMsg);
 	}
 	
+	//If user exists, log user in and go to past orders page
 	if($userFound == true){
 		$_SESSION["user"] = $email;
 		mysqli_close($conn);
 		header( "Location: orders.php" );
 	}
+	//If user doesn't exists, go to login page
 	else{
 		reject($noUserMsg);
 	}
