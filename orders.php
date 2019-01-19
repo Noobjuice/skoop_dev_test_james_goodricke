@@ -77,7 +77,7 @@
 								<th>".$email."</th>
 								<th>".$fullAddress."</th>
 								<th>".$status."</th>
-								<th><a href='order-details.php?id=".$id."' class='button'>&rarr;</a></th>
+								<th><a href='order-details.php?id=".$id."' class='button' target='_blank'>&rarr;</a></th>
 							</tr>";
 							/*TODO: Delete This
 							<button onClick='parent.location=\"order-details.php?id=".$id."\"'>&rarr;</button>*/
@@ -89,6 +89,8 @@
 					echo"</table>";
 				}
 			}
+			//Close connection when finished
+			mysqli_close($conn);
 		}
 	?>
 	</table>
