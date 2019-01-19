@@ -2,6 +2,7 @@
 <?php
 	//Check user is logged in
 	include "login-check.php";
+	include "concat-address.php";
 ?>
 <head>
 	<title>Past Orders</title>
@@ -65,56 +66,7 @@
 					while($query->fetch()){
 						
 						//Concatonate Address
-						$fullAddress = "";
-						//Address line 1
-						if($address_line_one != ""){
-							$fullAddress .= $address_line_one.", ";
-							
-							//Add comma if there is still more address to come
-							if($address_line_two != "" || $suburb != "" || $state != "" || $postcode != "" || $country != "") {
-								$fullAddress .= ", ";
-							}
-						}	
-						//Address line 2					
-						if($address_line_two != ""){
-							$fullAddress .= $address_line_two.", ";
-							
-							//Add comma if there is still more address to come
-							if($suburb != "" || $state != "" || $postcode != "" || $country != "") {
-								$fullAddress .= ", ";
-							}
-						}
-						//Suburb						
-						if($suburb != ""){
-							$fullAddress .= $suburb.", ";
-							
-							//Add comma if there is still more address to come
-							if($state != "" || $postcode != "" || $country != "") {
-								$fullAddress .= ", ";
-							}
-						}						
-						//State	
-						if($state != ""){
-							$fullAddress .= $state.", ";
-							
-							//Add comma if there is still more address to come
-							if($postcode != "" || $country != "") {
-								$fullAddress .= ", ";
-							}
-						}						
-						//Postcode	
-						if($postcode != ""){
-							$fullAddress .= $postcode.", ";
-							
-							//Add comma if there is still more address to come
-							if($country != "") {
-								$fullAddress .= ", ";
-							}
-						}						
-						//Country
-						if($country != ""){
-							$fullAddress .= $country;
-						}
+						$fullAddress = concatenateAddress($address_line_one, $address_line_two, $suburb, $state, $postcode, $country, false);
 						
 						/*Populate row of table*/
 						echo "<tr>
