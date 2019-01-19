@@ -2,6 +2,7 @@
 <?php
 	//Check user is logged in
 	include "login-check.php";
+	include "concat-address.php";
 ?>
 <head>
 	<title>Order Details</title>
@@ -10,15 +11,7 @@
 <body>
 <h1>Order Details</h1>
 <?php
-	echo $_GET["id"];
-	
-	/*
-	Allows the client to view further information about the order, including:
-	delivery address, 
-	items ordered 
-	a list of any past orders by this customer. Assume unique identifier is customer name. 
-	*/
-	
+
 	//Database Credentials
 	$serverName  = "localhost";
 	$dbName = "skoop";
@@ -37,7 +30,7 @@
 	//If no connection error, fetch and display data.
 	else{
 		//Query to be sent to Server
-		$statement = "SELECT orders.address_line_one, orders.address_line_two, orders.suburb, orders.state, orders.postcode, orders.country, products.name 
+		$statement = "SELECT orders.name, orders.address_line_one, orders.address_line_two, orders.suburb, orders.state, orders.postcode, orders.country, products.name 
 		FROM orders INNER JOIN products ON orders.product_code = products.code
 		WHERE orders.id = ".$_GET["id"].";";
 			
@@ -53,11 +46,12 @@
 			//If no errors, put data in table
 			else {
 				$query->store_result();
-				$query->bind_result($address_line_one, $address_line_two, $suburb, $state, $postcode, $country, $name);
+				$query->bind_result($userName, $address_line_one, $address_line_two, $suburb, $state, $postcode, $country, $itemName);
 				
 				while($query->fetch()){
-					//TODO: Delete this (for testing only)
-					echo "Product Name: ".$name;
+					$fullAddress = $userName.", <br/>".concatenateAddress($address_line_one, $address_line_two, $suburb, $state, $postcode, $country, true);
+					echo "<strong>Address:</strong><br/>".$fullAddress."<br/><br/>";
+					echo "<strong>Ordered Item:</strong><br/>".$itemName;
 				}
 			}
 		}
