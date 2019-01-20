@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+	//Check user is logged in
+	include "login-check.php";
+?>
 <head>
 	<title>Upload Orders</title>
 	<link rel="stylesheet" href="styles/styles.css">
