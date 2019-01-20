@@ -30,7 +30,7 @@
 							state: line[8],
 							postcode: line[9],
 							country: line[10],
-							status: line[11]
+							//status: line[11]
 						},
 					success: function(msg){
 						//$('.answer').html(msg);
