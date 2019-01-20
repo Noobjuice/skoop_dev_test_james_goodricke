@@ -97,14 +97,14 @@
 						
 						/*Populate row of table*/
 						echo "<tr>
-								<th>".$order_id."</th>
-								<th></th>
-								<th>".$name."</th>
-								<th>".$mobile."</th>
-								<th>".$email."</th>
-								<th>".$fullAddress."</th>
-								<th>".$status."</th>
-								<th><a href='order-details.php?id=".$id."' class='button' target='_blank'>&rarr;</a></th>
+								<td>".$order_id."</td>
+								<td></td>
+								<td>".$name."</td>
+								<td>".$mobile."</td>
+								<td>".$email."</td>
+								<td>".$fullAddress."</td>
+								<td>".$status."</td>
+								<td><a href='order-details.php?id=".$id."' class='button' target='_blank'>&rarr;</a></td>
 							</tr>";
 							/*TODO: Delete This
 							<button onClick='parent.location=\"order-details.php?id=".$id."\"'>&rarr;</button>*/
@@ -114,6 +114,8 @@
 					}
 					//Close Table
 					echo"</table>";
+					//PAGENATION
+					echo"<div class='tablePages'>";
 					
 					//SHOW FIRT AND PREVIOUS BUTTONS
 					if($page>1){
@@ -180,6 +182,7 @@
 							echo "<span style='margin:0 .5em;'> >> </span>";
 						echo "</a>";
 					}
+					echo "</div>";
 				}
 			}
 			//Close connection when finished

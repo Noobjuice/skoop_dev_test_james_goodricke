@@ -4,7 +4,7 @@
 ?>
 <head>
 	<title>Order Details</title>
-	<link rel="stylesheet" href="/styles/styles.css" />
+	<link rel="stylesheet" href="styles/styles.css" />
 	
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">

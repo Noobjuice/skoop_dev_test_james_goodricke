@@ -14,7 +14,6 @@
 	
 </head>
 <body>
-	<h1>Client Login</h1>
 	<?php
 		//Start Session
 		session_start();
@@ -32,10 +31,12 @@
 			unset($_SESSION["loginError"]);
 		}
 	?>
+	<img src="img/SKOOP_Logo_Grey_Trans.png"/>
+	<h1>Client Login</h1>
 	<form action="login-do.php" method="post">
 		<input type="email" name="email" placeholder="email"> <br />
 		<input type="password" name="password" placeholder="password"> <br />
 		<input type="submit">
 	</form>
-	<div id="result"></div>
+
 </body>
