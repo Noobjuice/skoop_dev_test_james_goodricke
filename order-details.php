@@ -1,10 +1,19 @@
-<HTML XMLns="http://www.w3.org/1999/xHTML">
+<!DOCTYPE html>
 <?php
 	include "login-check.php";		//Checks if user is logged in
 ?>
 <head>
 	<title>Order Details</title>
-	<link rel="stylesheet" href="/styles/styles.css">
+	<link rel="stylesheet" href="/styles/styles.css" />
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
 <?php
