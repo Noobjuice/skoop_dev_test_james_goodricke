@@ -2,15 +2,14 @@
 	//Check user is logged in
 	include "login-check.php";
 	include "db-login.php";
-	$dbTableName = "orders";
 	
-	$errorMessage = "DATABASE ERROR";
+	$errorMessage = "-1";
 	
 	// Create connection
 	$conn = new mysqli($serverName, $dbUsername, $dbPassword, $dbName);
 	//If connection error, notify the user.
 	if ($conn->connect_error) {
-		echo $errorMessage;
+		$result = "";
 	}
 	else {	
 		//Query to be sent to Server
@@ -18,7 +17,7 @@
 			
 		//If Query failed to prepare, notify user
 		if(!($query = $conn->prepare($statement))){
-			echo $errorMessage;
+			$result = $errorMessage;
 		}
 		//If query prepared successfully, execute query
 		else{
@@ -26,7 +25,7 @@
 			
 			//If Errors exist, report to user
 			if($query->errno != 0) {
-				echo $errorMessage;
+				$result = $errorMessage;
 			}
 			//If no errors, begin processing data.
 			else {
@@ -232,7 +231,24 @@
 				-----------------*/	
 				if($result == ""){
 					$result = "OK";
-					//TODO: finish this
+
+					//Query to be sent to Server
+					$statement = "INSERT INTO orders (order_id, product_code, name, email, mobile, address_line_one, address_line_two, suburb, state, postcode, country, status)
+						VALUES ('".$order_id."', '".$product_code."', '".$name."', '".$email."', ".$mobile."', '".$address_line_one."', '".$address_line_two."', '".$suburb."', ".$state."', '".$postcode."', '".$country."', '');";
+						
+					//If Query failed to prepare, notify user
+					if(!($query = $conn->prepare($statement))){
+						$result = $errorMessage;
+					}
+					//If query prepared successfully, execute query
+					else{
+						$query->execute();
+						
+						//If Errors exist, report to user
+						if($query->errno != 0) {
+							$result = $errorMessage;
+						}
+					}
 				}
 				else{
 					$result = trim($result,",");

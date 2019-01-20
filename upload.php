@@ -35,6 +35,9 @@
 			
 			//Create a new row
 			var tr = document.createElement('tr');
+			if(errors[0] == -1){
+				tr.classList.add( "db-error-message" );
+			}
 			
 			//Add cells to row
 			for (var i = 0; i < line.length; i++) {
@@ -146,7 +149,7 @@
     </fieldset>
 	
 	<div id="fail-lines" class="hidden">
-		<p>The following lines failed to upload (errors marked in red).</p>
+		<p>The following lines failed to upload (syntax errors are red, database errors are blue).</p>
 		<table id="fail-table">
 			<tr>
 				<th>order_id</th>

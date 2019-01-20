@@ -12,6 +12,10 @@ a.button {
 	display: none;
 }
 
-.error-message{
+.error-message {
 	color: red;
+}
+
+.db-error-message {
+	color: blue;
 }
