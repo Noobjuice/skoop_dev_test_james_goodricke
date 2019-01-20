@@ -233,12 +233,13 @@
 					$result = "OK";
 
 					//Query to be sent to Server
-					$statement = "INSERT INTO orders (order_id, product_code, name, email, mobile, address_line_one, address_line_two, suburb, state, postcode, country, status)
-						VALUES ('".$order_id."', '".$product_code."', '".$name."', '".$email."', ".$mobile."', '".$address_line_one."', '".$address_line_two."', '".$suburb."', ".$state."', '".$postcode."', '".$country."', '');";
+					$statement = "INSERT INTO orders (order_id, product_code, name, email, mobile, address_line_one, address_line_two, suburb, state, postcode, country, status) VALUES ('".$order_id."', '".$product_code."', '".$name."', '".$email."', '".$mobile."', '".$address_line_one."', '".$address_line_two."', '".$suburb."', '".$state."', '".$postcode."', '".$country."', '');";
 						
 					//If Query failed to prepare, notify user
 					if(!($query = $conn->prepare($statement))){
-						$result = $errorMessage;
+						//$result = $errorMessage;
+						//$result = query->error;
+						$result = $statement;
 					}
 					//If query prepared successfully, execute query
 					else{

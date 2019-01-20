@@ -6,10 +6,7 @@
 	$noUserMsg = "The email address or password is incorrect. Please try again.";
 	
 	//Database Credentials
-	$serverName  = "localhost";
-	$dbName = "skoop";
-	$dbUsername = "root";
-	$dbPassword = "";
+	include "db-login.php";
 	$dbTableName = "users";
 	
 	//Function to return user to the login page with an error message.

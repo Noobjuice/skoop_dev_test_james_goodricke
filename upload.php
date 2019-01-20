@@ -34,13 +34,13 @@
 		<p class="error-message">The following lines failed to upload (syntax errors are red, database errors are blue).</p>
 		<table id="fail-table">
 			<tr>
-				<th>order_id</th>
-				<th>product_code</th>
+				<th>order id</th>
+				<th>product code</th>
 				<th>name</th>
 				<th>email</th>
 				<th>mobile</th>
-				<th>address_line_one</th>
-				<th>address_line_two</th>
+				<th>address line one</th>
+				<th>address line two</th>
 				<th>suburb</th>
 				<th>state</th>
 				<th>postcode</th>
@@ -52,13 +52,13 @@
 		<p>The following lines were uploaded successfully.</p>
 		<table id="success-table">
 			<tr>
-				<th>order_id</th>
-				<th>product_code</th>
+				<th>order id</th>
+				<th>product code</th>
 				<th>name</th>
 				<th>email</th>
 				<th>mobile</th>
-				<th>address_line_one</th>
-				<th>address_line_two</th>
+				<th>address line one</th>
+				<th>address line two</th>
 				<th>suburb</th>
 				<th>state</th>
 				<th>postcode</th>

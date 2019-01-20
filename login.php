@@ -18,6 +18,7 @@
 		//Start Session
 		session_start();
 		
+		
 		//If user is already logged in, take them to orders page.
 		if(isset($_SESSION["user"])) {
 			header( "Location: orders.php" );

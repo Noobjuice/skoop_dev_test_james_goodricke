@@ -20,17 +20,12 @@
 	//Include Files
 	include "concat-address.php";	//Used to concatonate full address
 	include "header.php";			//Header
+	include "login-check.php";
 ?>
 
 <h1>Past Orders</h1>
 	<?php
-
-	
-		//Database Credentials
-		$serverName  = "localhost";
-		$dbName = "skoop";
-		$dbUsername = "root";
-		$dbPassword = "";
+		include "db-login.php";
 		$dbTableName = "orders";
 		
 		//This message is displayed to the user if there's an error with the database query.
@@ -57,13 +52,10 @@
 		//If no connection error, fetch and display data.
 		else{
 			//Query to be sent to Server
-			/*`id`, `order_id`, `product_code`, `name`, `email`, `mobile`, `address_line_one`, `address_line_two`, `suburb`, `state`, `postcode`, `country`, `status`*/
 			$statement = "SELECT id, order_id, name, email, mobile, address_line_one, address_line_two, suburb, state, postcode, country, status  FROM ".$dbTableName." LIMIT ".$fromRowNum.", ".$rowsPerPage.";";
 				
 			//Prepare and execute Query
 			if($query = $conn->prepare($statement)){
-				//TODO: Delete This
-				//$query->bind_param('issssssssss');
 				$query->execute();
 				
 				//If Errors exist, report to user

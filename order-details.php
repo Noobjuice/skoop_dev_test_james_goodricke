@@ -24,12 +24,7 @@
 
 <h1>Order Details</h1>
 <?php
-
-	//Database Credentials
-	$serverName  = "localhost";
-	$dbName = "skoop";
-	$dbUsername = "root";
-	$dbPassword = "";
+	include "db-login.php";
 	
 	//This message is displayed to the user if there's an error with the database query.
 	$errorMessage = "<p>Something went wrong connecting to the server. Please try refreshing the page, or contact your system administrator.</p>";
