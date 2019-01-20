@@ -7,4 +7,11 @@ a.button {
     text-decoration: none;
     color: initial;
 }
-Or pick
+
+.hidden{
+	display: none;
+}
+
+.error-message{
+	color: red;
+}

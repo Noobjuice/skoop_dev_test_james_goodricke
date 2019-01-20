@@ -29,7 +29,7 @@
 		$order_id = filter_var($order_id, FILTER_SANITIZE_STRING);
 	}
 	catch(Exception $e) {
-		$result .= "0,";
+		$result = "0,";
 	}	
 	
 	//product code (must exist in the system)
@@ -39,6 +39,7 @@
 	}
 	catch(Exception $e) {
 		$result .= "1,";
+		echo 'Message: ' .$e->getMessage();
 	}	
 	
 	//Name (Required)
@@ -165,7 +166,7 @@
 		}
 		//If input fails to sanitise, mark as error
 		catch(Exception $e) {
-			$result .= "10,";
+			$result .= "10";
 		}
 	}
 	else{
@@ -186,6 +187,7 @@
 	SEND DATA TO SERVER
 	-----------------*/	
 	if($result == ""){
+		$result = "OK";
 		//TODO: finish this
 	}
 	
