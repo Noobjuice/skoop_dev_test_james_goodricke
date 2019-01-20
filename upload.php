@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php
-	//Check user is logged in
-	include "login-check.php";
+	include "login-check.php";		//Checks if user is logged in
 ?>
 <head>
 	<title>Upload Orders</title>
@@ -146,6 +145,11 @@
 </script>
     </head>
     <body>
+	<?php
+		//Include Files
+		include "header.php";			//Header
+	?>
+	
 	<h1>Upload Orders</h1>
     <fieldset>
         <legend>Choose your .csv file.</legend>

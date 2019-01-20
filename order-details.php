@@ -1,14 +1,18 @@
 <HTML XMLns="http://www.w3.org/1999/xHTML">
 <?php
-	//Check user is logged in
-	include "login-check.php";
-	include "concat-address.php";
+	include "login-check.php";		//Checks if user is logged in
 ?>
 <head>
 	<title>Order Details</title>
 	<link rel="stylesheet" href="/styles/styles.css">
 </head>
 <body>
+<?php
+	//Include Files
+	include "concat-address.php";	//Used to concatonate full address
+	include "header.php";			//Header
+?>
+
 <h1>Order Details</h1>
 <?php
 
