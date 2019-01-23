@@ -46,11 +46,11 @@
 	}
 	
 	//Query to be sent to server
-	$statement = "SELECT * FROM ".$dbTableName." WHERE email = ?";
+	$statement = "SELECT * FROM ".$dbTableName." WHERE email = ? && password = PASSWORD(?)";
 		
 	//Prepare Query
 	if($query = $conn->prepare($statement)){
-		$query->bind_param('s', $email);
+		$query->bind_param('ss', $email, $password);
 		
 		//Execute Query
 		$query->execute();
@@ -60,11 +60,8 @@
 			$query->store_result();
 			$query->bind_result($id, $queryEmail, $queryPassword);
 			
-			while($query->fetch()){
-				if ($email == $queryEmail && $password == $queryPassword){
-					$userFound = true;
-					break;
-				}
+			if ($query->num_rows > 0){
+				$userFound = true;			
 			}
 		}
 		//If query unsuccessful, return to login page
